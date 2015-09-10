@@ -368,7 +368,7 @@ class Phalcana extends Injectable
             return $view;
         });
 
-        if ($setup->database) {
+        if (isset($setup->database)) {
             $di->set('modelsManager', 'Phalcon\Mvc\Model\Manager');
             $di->set('modelsMetadata', 'Phalcon\Mvc\Model\MetaData\Memory');
             $di->setShared('db', function () use ($setup) {
