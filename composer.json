@@ -16,6 +16,7 @@
         "issues": "https://github.com/braf/phalcana-installer/issues"
     },
     "require": {
-        "phalcana/installer": "dev-master"
+        "php": ">=5.4.0",
+        "phalcana/installer": "^0.8"
     }
 }

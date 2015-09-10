@@ -6,4 +6,6 @@
 
 ### Installing with composer
 
+```bash
 composer create-project phalcana/project project-folder
+```
