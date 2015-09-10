@@ -443,13 +443,11 @@ class Phalcana extends Injectable
      **/
     protected function loadRoutes($router, $filename = 'routes')
     {
-        $found = $this->fs->findFile('config', $filename, 'php', true, true);
+        $files = $this->fs->findFile('config', $filename, 'php', true, true);
 
-        if (!$found) {
+        if (!$files) {
             return $router;
         }
-
-        $files = array_reverse($found);
 
         foreach ($files as $file) {
             include $file;

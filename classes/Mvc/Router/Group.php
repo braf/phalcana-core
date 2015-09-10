@@ -21,6 +21,18 @@ class Group implements GroupInterface
     protected $hostname;
     protected $beforeMatchCallback;
 
+
+    /**
+     * Constructor
+     *
+     * @param  array  $paths        The mapping for the paths
+     * @author Neil Brayfield <neil@brayfield.uk>
+     */
+    public function __construct($paths = null)
+    {
+        $this->paths = $paths;
+    }
+
     /**
      * Get the routes added to the router
      *
@@ -233,7 +245,7 @@ class Group implements GroupInterface
      * @param  callable
      * @author Neil Brayfield <neil@brayfield.uk>
      */
-    public function beforeMatch(callable $callback)
+    public function beforeMatch($callback)
     {
         $this->beforeMatchCallback = $callback;
     }

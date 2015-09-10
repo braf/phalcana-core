@@ -194,7 +194,7 @@ class Route implements RouteInterface
     public function getPattern()
     {
         if ($this->getGroup() != null) {
-            return $this->getGroup()->getPrefix(). $this->pattern();
+            return $this->getGroup()->getPrefix(). $this->pattern;
         } else {
             return $this->pattern;
         }
@@ -222,8 +222,12 @@ class Route implements RouteInterface
      */
     public function getPaths()
     {
-        if ($this->getGroup() != null) {
-            return array_merge($this->getGroup()->getPaths(), $this->paths());
+        if ($this->getGroup() != null && is_array($this->getGroup()->getPaths())) {
+            if (is_array($this->paths)) {
+                return array_merge($this->getGroup()->getPaths(), $this->paths);
+            } else {
+                return $this->getGroup()->getPaths();
+            }
         } else {
             return $this->paths;
         }

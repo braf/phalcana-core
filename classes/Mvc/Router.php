@@ -184,6 +184,8 @@ class Router extends Injectable implements RouterInterface
         $this->matchedRoute = $route;
         $this->matches = $route->getPaths();
 
+        $this->params = array_merge($this->matches, $this->params);
+
         $converters = $route->getConverters();
         if (is_array($converters)) {
             foreach ($this->params as $part => &$value) {
