@@ -44,7 +44,7 @@ class Error
             }
 
         } catch (\Exception $n) {
-            if (Phalcana\Phalcana::$mode >= Phalcana\Phalcana::PRODUCTION) {
+            if (Phalcana::$mode >= Phalcana::PRODUCTION) {
                 echo "<h1>Internal server error</h1>";
                 echo "<p>Error handler failed with {$n->getMessage()} in {$n->getFile()} [{$n->getLine()}]</p>";
                 echo "<p>Original error was {$e->getMessage()} in {$e->getFile()} [{$e->getLine()}]</p>";
@@ -153,7 +153,7 @@ class Error
                     echo self::text($e);
                     echo PHP_EOL;
                 } else {
-                    include Phalcana\Phalcana::$di->get('fs')->findFile('views', 'error', 'html');
+                    include Phalcana::$di->get('fs')->findFile('views', 'error', 'html');
 
                 }
 
