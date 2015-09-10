@@ -27,9 +27,6 @@ class Error
     public static $shutdownErrors = array(E_PARSE, E_ERROR, E_USER_ERROR);
 
 
-
-
-
     /**
      * This handler is for dealing with errors and converting any non HTTP errors to HTTP 500 errors
      *

@@ -57,7 +57,7 @@ class UTF8
     {
         if (! $charset) {
             // Use the application character set
-            $charset = Phalcana\Phalcana::$charset;
+            $charset = Phalcana::$charset;
         }
 
         if (is_array($var) || is_object($var)) {
@@ -144,7 +144,7 @@ class UTF8
     public static function transliterateToAscii($str, $case = 0)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -167,11 +167,11 @@ class UTF8
     public static function strlen($str)
     {
         if (UTF8::$server_utf8) {
-            return mb_strlen($str, Phalcana\Phalcana::$charset);
+            return mb_strlen($str, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -202,7 +202,7 @@ class UTF8
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -232,7 +232,7 @@ class UTF8
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -264,7 +264,7 @@ class UTF8
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -288,7 +288,7 @@ class UTF8
     public static function substrReplace($str, $replacement, $offset, $length = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -316,7 +316,7 @@ class UTF8
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -342,7 +342,7 @@ class UTF8
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -364,7 +364,7 @@ class UTF8
     public static function ucfirst($str)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -386,7 +386,7 @@ class UTF8
     public static function ucwords($str)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -411,7 +411,7 @@ class UTF8
     public static function strcasecmp($str1, $str2)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -439,7 +439,7 @@ class UTF8
     public static function strIreplace($search, $replace, $str, & $count = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -464,7 +464,7 @@ class UTF8
     public static function stristr($str, $search)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -489,7 +489,7 @@ class UTF8
     public static function strspn($str, $mask, $offset = null, $length = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -514,7 +514,7 @@ class UTF8
     public static function strcspn($str, $mask, $offset = null, $length = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -539,7 +539,7 @@ class UTF8
     public static function strPad($str, $final_str_length, $pad_str = ' ', $pad_type = STR_PAD_RIGHT)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -562,7 +562,7 @@ class UTF8
     public static function strSplit($str, $split_length = 1)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -583,7 +583,7 @@ class UTF8
     public static function strrev($str)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -606,7 +606,7 @@ class UTF8
     public static function trim($str, $charlist = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -629,7 +629,7 @@ class UTF8
     public static function ltrim($str, $charlist = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -652,7 +652,7 @@ class UTF8
     public static function rtrim($str, $charlist = null)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -674,7 +674,7 @@ class UTF8
     public static function ord($chr)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -703,7 +703,7 @@ class UTF8
     public static function toUnicode($str)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
@@ -732,7 +732,7 @@ class UTF8
     public static function fromUnicode($arr)
     {
         if (! isset(UTF8::$called[__FUNCTION__])) {
-            require Phalcana\Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
+            require Phalcana::$di->get('fs')->findFile('utf8', __FUNCTION__);
 
             // Function has been called
             UTF8::$called[__FUNCTION__] = true;
