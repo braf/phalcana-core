@@ -5,7 +5,7 @@ namespace Phalcana\Core;
 use Phalcon\Logger;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\DI;
-use Phalcana;
+use Phalcana\Phalcana;
 use Phalcana\Exceptions\HTTP;
 use Phalcana\Exceptions\HTTP404;
 use Phalcana\Exceptions\HTTP500;

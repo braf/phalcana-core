@@ -4,7 +4,7 @@ namespace Phalcana\Listeners;
 
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Dispatcher\Exception;
-use Phalcana;
+use Phalcana\Phalcana;
 use Phalcana\Exceptions\HTTP503;
 use Phalcana\Exceptions\HTTP404;
 

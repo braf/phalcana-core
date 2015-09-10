@@ -4,7 +4,7 @@ namespace Phalcana\Exceptions;
 
 
 use Phalcon\Dispatcher;
-use Phalcana;
+use Phalcana\Phalcana;
 
 /**
  * Base class for HTTP exceptions

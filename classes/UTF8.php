@@ -2,7 +2,7 @@
 
 namespace Phalcana;
 
-use Phalcana;
+use Phalcana\Phalcana;
 
 /**
  * A port of [phputf8](http://phputf8.sourceforge.net/) to a unified set

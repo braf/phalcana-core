@@ -2,7 +2,7 @@
 namespace Phalcana\Exceptions;
 
 use Phalcon\Mvc\Dispatcher;
-use Phalcana;
+use Phalcana\Phalcana;
 
 /**
  * Handle 500 errors

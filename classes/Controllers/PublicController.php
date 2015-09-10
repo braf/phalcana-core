@@ -3,7 +3,7 @@
 namespace Phalcana\Controllers;
 
 use Phalcon\Mvc\View;
-use Phalcana;
+use Phalcana\Phalcana;
 use Phalcana\Exceptions\HTTP404;
 use Phalcana\Exceptions\HTTP304;
 use Phalcana\File;
