@@ -184,8 +184,6 @@ class Router extends Injectable implements RouterInterface
         $this->matchedRoute = $route;
         $this->matches = $route->getPaths();
 
-        $this->params = array_merge($this->matches, $this->params);
-
         $converters = $route->getConverters();
         if (is_array($converters)) {
             foreach ($this->params as $part => &$value) {
@@ -198,21 +196,29 @@ class Router extends Injectable implements RouterInterface
         if (isset($this->params['namespace'])) {
             $this->namespace = $this->params['namespace'];
             unset($this->params['namespace']);
+        } elseif (isset($this->matches['namespace'])) {
+            $this->namespace = $this->matches['namespace'];
         }
 
         if (isset($this->params['module'])) {
             $this->module = $this->params['module'];
             unset($this->params['module']);
+        } elseif (isset($this->matches['module'])) {
+            $this->module = $this->matches['module'];
         }
 
         if (isset($this->params['controller'])) {
             $this->controller = $this->params['controller'];
             unset($this->params['controller']);
+        } elseif (isset($this->matches['controller'])) {
+            $this->controller = $this->matches['controller'];
         }
 
         if (isset($this->params['action'])) {
             $this->action = $this->params['action'];
             unset($this->params['action']);
+        } elseif (isset($this->matches['action'])) {
+            $this->action = $this->matches['action'];
         }
 
         return true;
