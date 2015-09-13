@@ -29,8 +29,14 @@ class HTTP500 extends HTTP
      * @param   string  HTML response from the debugger to send on.
      * @return  void
      **/
-    public function __construct($message = "", $code = 500, $severity = 1, $filename = __FILE__, $lineno = __LINE__, \Exception $previous = null)
-    {
+    public function __construct(
+        $message = "",
+        $code = 500,
+        $severity = 1,
+        $filename = __FILE__,
+        $lineno = __LINE__,
+        \Exception $previous = null
+    ) {
         if ($previous != null) {
             $this->debug = $message;
             $message = "";
@@ -48,8 +54,7 @@ class HTTP500 extends HTTP
     public function initialize()
     {
 
-        if (Phalcana\Phalcana::$mode <= Phalcana\Phalcana::STAGING) {
-
+        if (Phalcana::$mode <= Phalcana::STAGING) {
             // do stuff with the error handler here
 
 
