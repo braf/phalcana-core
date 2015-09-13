@@ -25,10 +25,7 @@ class Router extends Injectable implements RouterInterface
     const POSITION_FIRST = 3;
     const POSITION_LAST = 4;
 
-    protected $defaults = array(
-        "controller" => 'index',
-        "action" => 'index',
-    );
+    protected $defaults = null;
 
     protected $uriSource = 1;
     protected $wasMatch = false;

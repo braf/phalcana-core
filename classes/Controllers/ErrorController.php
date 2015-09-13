@@ -5,8 +5,8 @@ namespace Phalcana\Controllers;
 use Phalcon\Mvc\View;
 
 /**
- * Main error controller. This is just a base class, to create your own error handler copy this into your app directory.
- *
+ * Main error controller. This is just a base class,
+ * to create your own error handler copy this into your app directory.
  *
  * @package     Phalcana
  * @category    Error
@@ -28,7 +28,6 @@ class ErrorController extends \Phalcon\Mvc\Controller
         ));
         $this->view->enable();
         $this->view->setMainView('error');
-
     }
 
 
@@ -39,6 +38,7 @@ class ErrorController extends \Phalcon\Mvc\Controller
      **/
     public function show404Action()
     {
+        $this->response->setStatusCode(404, 'Page not found');
         $this->view->setVar('title', '404 Page not found');
     }
 
