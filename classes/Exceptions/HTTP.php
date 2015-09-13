@@ -2,7 +2,6 @@
 
 namespace Phalcana\Exceptions;
 
-
 use Phalcon\Dispatcher;
 use Phalcana\Phalcana;
 
@@ -108,8 +107,14 @@ abstract class HTTP extends Exception
      * @param int       Line number in the file of the error
      * @param Exception Previous error message
      **/
-    public function __construct($message = "", $code = 500, $severity = 1, $filename = __FILE__, $lineno = __LINE__, \Exception $previous = null)
-    {
+    public function __construct(
+        $message = "",
+        $code = 500,
+        $severity = 1,
+        $filename = __FILE__,
+        $lineno = __LINE__,
+        \Exception $previous = null
+    ) {
         // Set code
         if (!$this->code) {
             $this->code = $code;
@@ -122,7 +127,7 @@ abstract class HTTP extends Exception
         $this->response = $this->di->get('response');
 
         if (is_string($message) && $message == "") {
-
+            //
         } else {
             $this->message = $message;
 
@@ -144,7 +149,9 @@ abstract class HTTP extends Exception
      **/
     public function setStatus()
     {
-        $message = (!is_string($this->message) || $this->message == "") ? HTTP::$messages[$this->getCode()] : $this->message;
+        $message = (!is_string($this->message) || $this->message == "") ?
+            HTTP::$messages[$this->getCode()] : $this->message;
+
         $this->response->setStatusCode($this->getCode(), $message);
 
     }
@@ -198,8 +205,7 @@ abstract class HTTP extends Exception
 
 
         if (is_array($this->forwards)) {
-
-            if (\Phalcana\Phalcana::$isCli) {
+            if (Phalcana::$isCli) {
                 echo "HTTP Error: ".$this->code;
                 echo ' - '.$this->message.PHP_EOL;
                 exit;

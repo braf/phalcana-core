@@ -39,7 +39,7 @@ class Phalcana extends Injectable
     const TESTING     = 30;
     const DEVELOPMENT = 40;
 
-    const VERSION     = '0.2.0';
+    const VERSION     = '0.8.1';
     const CODENAME    = 'adio';
 
     /**
@@ -152,7 +152,8 @@ class Phalcana extends Injectable
     /**
      * Initiate the Dispatch flow.
      *
-     * Once called this checks the routes and loads the controller, subsquently rendering any appropriate views and sending the response
+     * Once called this checks the routes and loads the controller, subsquently
+     * rendering any appropriate views and sending the response
      *
      **/
     public function main()
@@ -160,7 +161,6 @@ class Phalcana extends Injectable
         $di = $this->getDI();
 
         if (self::$isCli) {
-
             global $argv;
 
             $arguments = array();
@@ -181,7 +181,6 @@ class Phalcana extends Injectable
             $this->console->handle($arguments);
 
         } else {
-
             // Get the 'router' service
             $this->router->handle();
 
@@ -477,7 +476,8 @@ class Phalcana extends Injectable
      * Setup includes two key files.
      *
      * - `APPPATH/config/static.php` Containing config options to be commited into your repo
-     * - `APPPATH/config/setup.php`  Dynamic config file that bootstraps the system to your configuration. Values defined here override the static config
+     * - `APPPATH/config/setup.php`  Dynamic config file that bootstraps the system to
+     * your configuration. Values defined here override the static config
      *
      *
      * @return  Phalcon\Config
