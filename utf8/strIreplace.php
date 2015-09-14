@@ -11,7 +11,7 @@
 function _strIreplace($search, $replace, $str, & $count = null)
 {
     if (\Phalcana\UTF8::isAscii($search) && \Phalcana\UTF8::isAscii($replace) && \Phalcana\UTF8::isAscii($str)) {
-        return strIreplace($search, $replace, $str, $count);
+        return str_ireplace($search, $replace, $str, $count);
     }
 
     if (is_array($str)) {
@@ -49,7 +49,7 @@ function _strIreplace($search, $replace, $str, & $count = null)
         $str_lower = substr($str_lower, $matched_strlen);
 
         $offset = $total_matched_strlen + strlen($matches[1]) + ($i * (strlen($replace) - 1));
-        $str = substrReplace($str, $replace, $offset, strlen($search));
+        $str = substr_replace($str, $replace, $offset, strlen($search));
 
         $total_matched_strlen += $matched_strlen;
         $i++;

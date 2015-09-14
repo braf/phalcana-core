@@ -2,6 +2,8 @@
 
 namespace Phalcana;
 
+use Phalcana\UTF8;
+
 /**
  * Text helper class. Provides simple methods for working with text.
  *
@@ -244,7 +246,7 @@ class Text extends \Phalcon\Di\Injectable
         }
 
         // Split the pool into an array of characters
-        $pool = ($utf8 === true) ? UTF8::strSplit($pool, 1) : strSplit($pool, 1);
+        $pool = ($utf8 === true) ? UTF8::strSplit($pool, 1) : str_split($pool, 1);
 
         // Largest pool key
         $max = count($pool) - 1;

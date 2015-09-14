@@ -198,7 +198,7 @@ class UTF8
     public static function strpos($str, $search, $offset = 0)
     {
         if (UTF8::$server_utf8) {
-            return mb_strpos($str, $search, $offset, Phalcana\Phalcana::$charset);
+            return mb_strpos($str, $search, $offset, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
@@ -228,7 +228,7 @@ class UTF8
     public static function strrpos($str, $search, $offset = 0)
     {
         if (UTF8::$server_utf8) {
-            return mb_strrpos($str, $search, $offset, Phalcana\Phalcana::$charset);
+            return mb_strrpos($str, $search, $offset, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
@@ -259,8 +259,8 @@ class UTF8
     {
         if (UTF8::$server_utf8) {
             return ($length === null)
-                ? mb_substr($str, $offset, mb_strlen($str), Phalcana\Phalcana::$charset)
-                : mb_substr($str, $offset, $length, Phalcana\Phalcana::$charset);
+                ? mb_substr($str, $offset, mb_strlen($str), Phalcana::$charset)
+                : mb_substr($str, $offset, $length, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
@@ -312,7 +312,7 @@ class UTF8
     public static function strtolower($str)
     {
         if (UTF8::$server_utf8) {
-            return mb_strtolower($str, Phalcana\Phalcana::$charset);
+            return mb_strtolower($str, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {
@@ -338,7 +338,7 @@ class UTF8
     public static function strtoupper($str)
     {
         if (UTF8::$server_utf8) {
-            return mb_strtoupper($str, Phalcana\Phalcana::$charset);
+            return mb_strtoupper($str, Phalcana::$charset);
         }
 
         if (! isset(UTF8::$called[__FUNCTION__])) {

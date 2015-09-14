@@ -13,8 +13,7 @@
     ],
     "support": {
         "email": "support@phalcana.com",
-        "issues": "https://github.com/braf/phalcana-installer/issues",
-        "docs": "http://phalcana.com/guide"
+        "issues": "https://github.com/braf/phalcana-installer/issues"
     },
     "require": {
         "php": ">=5.4.0",

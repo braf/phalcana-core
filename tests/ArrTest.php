@@ -33,7 +33,7 @@ class ArrTest extends TestCase
             // That no parameters returns null
             array('function', array('function', null)),
             // That we can get an array of parameters values
-            array('function (1,2,3)', array('function', array('1', '2', '3'))),
+            array('function (1,2,3)', array('function ', array('1', '2', '3'))),
             // That it's not just using the callback "function"
             array('different_name(harry,jerry)', array('different_name', array('harry', 'jerry'))),
             // That static callbacks are parsed into arrays

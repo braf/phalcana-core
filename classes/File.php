@@ -119,7 +119,7 @@ class File extends \Phalcon\Di\Injectable
             $pieces += 1;
 
             // Create a new file piece
-            $piece = strPad($pieces, 3, '0', STR_PAD_LEFT);
+            $piece = str_pad($pieces, 3, '0', STR_PAD_LEFT);
             $piece = fopen($filename.'.'.$piece, 'wb+');
 
             // Number of bytes read
@@ -163,7 +163,7 @@ class File extends \Phalcon\Di\Injectable
         // Total number of pieces
         $pieces = 0;
 
-        while (is_file($piece = $filename.'.'.strPad($pieces + 1, 3, '0', STR_PAD_LEFT))) {
+        while (is_file($piece = $filename.'.'.str_pad($pieces + 1, 3, '0', STR_PAD_LEFT))) {
             // Read another piece
             $pieces += 1;
 
