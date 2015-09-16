@@ -2,10 +2,11 @@
 
 namespace Phalcana\Tasks;
 
-
+use Phalcon\CLI\Task;
 
 /**
- * This CLI task is designed to steramline the installation of the framework by asking questions interactively to write the config files.
+ * This CLI task is designed to steramline the installation of the framework by asking
+ * questions interactively to write the config files.
  *
  * There are two ways of running this function. Both are run from the root of the project.
  *
@@ -16,7 +17,7 @@ namespace Phalcana\Tasks;
  * @category   Tasks
  * @author     Neil Brayfield
  */
-class InstallTask extends \Phalcon\CLI\Task
+class InstallTask extends Task
 {
 
     /**
@@ -81,7 +82,6 @@ class InstallTask extends \Phalcon\CLI\Task
     protected function getMode($question = true)
     {
         if ($question) {
-
             $this->question("What mode would you like to run Phalcana in?");
 
             foreach ($this->modes as $key => $value) {
@@ -224,7 +224,6 @@ class InstallTask extends \Phalcon\CLI\Task
     {
 
         if (!$options) {
-
             $options = array();
             $this->question('Select a frontend template to install?');
             $dirs = $this->fs->listFiles('templates');

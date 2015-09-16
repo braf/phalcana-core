@@ -64,18 +64,15 @@ class Text extends \Phalcon\Di\Injectable
      * @param   bool    $ascii_only  Transliterate to ASCII?
      * @return  string
      */
-    public static function title($title, $separator = '-', $ascii_only = FALSE)
+    public static function title($title, $separator = '-', $ascii_only = false)
     {
-        if ($ascii_only === TRUE)
-        {
+        if ($ascii_only === true) {
             // Transliterate non-ASCII characters
             $title = UTF8::transliterate_to_ascii($title);
 
             // Remove all characters that are not the separator, a-z, 0-9, or whitespace
             $title = preg_replace('![^'.preg_quote($separator).'a-z0-9\s]+!', '', strtolower($title));
-        }
-        else
-        {
+        } else {
             // Remove all characters that are not the separator, letters, numbers, or whitespace
             $title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', UTF8::strtolower($title));
         }
@@ -219,8 +216,7 @@ class Text extends \Phalcon\Di\Injectable
 
         $utf8 = false;
 
-        switch ($type)
-        {
+        switch ($type) {
             case 'alnum':
                 $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 break;
@@ -325,7 +321,8 @@ class Text extends \Phalcon\Di\Injectable
         $regex = '('.implode('|', $badwords).')';
 
         if ($replace_partial_words === false) {
-            // Just using \b isn't sufficient when we need to replace a badword that already contains word boundaries itself
+            // Just using \b isn't sufficient when we need to replace a badword that
+            // already contains word boundaries itself
             $regex = '(?<=\b|\s|^)'.$regex.'(?=\b|\s|$)';
         }
 
@@ -401,10 +398,18 @@ class Text extends \Phalcon\Di\Injectable
     public static function autoLinkUrls($text)
     {
         // Find and replace all http/https/ftp/ftps links that are not part of an existing html anchor
-        $text = preg_replace_callback('~\b(?<!href="|">)(?:ht|f)tps?://[^<\s]+(?:/|\b)~i', 'Phalcana\Text::autoLinkUrlsCallback1', $text);
+        $text = preg_replace_callback(
+            '~\b(?<!href="|">)(?:ht|f)tps?://[^<\s]+(?:/|\b)~i',
+            'Phalcana\Text::autoLinkUrlsCallback1',
+            $text
+        );
 
         // Find and replace all naked www.links.com (without http://)
-        return preg_replace_callback('~\b(?<!://|">)www(?:\.[a-z0-9][-a-z0-9]*+)+\.[a-z]{2,6}[^<\s]*\b~i', 'Phalcana\Text::autoLinkUrlsCallback2', $text);
+        return preg_replace_callback(
+            '~\b(?<!://|">)www(?:\.[a-z0-9][-a-z0-9]*+)+\.[a-z]{2,6}[^<\s]*\b~i',
+            'Phalcana\Text::autoLinkUrlsCallback2',
+            $text
+        );
     }
 
     /**
@@ -443,7 +448,11 @@ class Text extends \Phalcon\Di\Injectable
         // Find and replace all email addresses that are not part of an existing html mailto anchor
         // Note: The "58;" negative lookbehind prevents matching of existing encoded html mailto anchors
         //       The html entity for a colon (:) is &#58; or &#058; or &#0058; etc.
-        return preg_replace_callback('~\b(?<!href="mailto:|58;)(?!\.)[-+_a-z0-9.]++(?<!\.)@(?![-.])[-a-z0-9.]+(?<!\.)\.[a-z]{2,6}\b(?!</a>)~i', 'Phalcana\Text::autoLinkEmailsCallback', $text);
+        return preg_replace_callback(
+            '~\b(?<!href="mailto:|58;)(?!\.)[-+_a-z0-9.]++(?<!\.)@(?![-.])[-a-z0-9.]+(?<!\.)\.[a-z]{2,6}\b(?!</a>)~i',
+            'Phalcana\Text::autoLinkEmailsCallback',
+            $text
+        );
     }
 
     /**

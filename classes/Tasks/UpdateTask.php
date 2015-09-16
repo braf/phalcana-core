@@ -2,7 +2,7 @@
 
 namespace Phalcana\Tasks;
 
-
+use Phalcon\CLI\Task;
 
 /**
  * Install task. This is design to steramline the installation of the framework.
@@ -13,7 +13,7 @@ namespace Phalcana\Tasks;
  * @category   Tasks
  * @author     Neil Brayfield
  */
-class UpdateTask extends \Phalcon\CLI\Task
+class UpdateTask extends Task
 {
 
     /**
@@ -25,10 +25,6 @@ class UpdateTask extends \Phalcon\CLI\Task
     {
         $this->cli->write($this->cli->color("\nRunning update tasks\n", 'green'));
 
-
-
         $this->cli->write($this->cli->color("\Update complete.\n", 'green'));
-
-
     }
 }

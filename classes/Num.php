@@ -77,8 +77,7 @@ class Num extends \Phalcon\Di\Injectable
             return 'th';
         }
 
-        switch ($number % 10)
-        {
+        switch ($number % 10) {
             case 1:
                 return 'st';
             case 2:
@@ -120,7 +119,9 @@ class Num extends \Phalcon\Di\Injectable
 
             $result = $formatter->format($number);
 
-            return $monetary ? str_replace($formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL), '', $result) : $result;
+            return $monetary
+                ? str_replace($formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL), '', $result)
+                : $result;
 
         }
 
@@ -157,8 +158,7 @@ class Num extends \Phalcon\Di\Injectable
         } else {
             $factor = ($precision === 0) ? 1 : pow(10, $precision);
 
-            switch ($mode)
-            {
+            switch ($mode) {
                 case self::ROUND_HALF_DOWN:
                 case self::ROUND_HALF_EVEN:
                 case self::ROUND_HALF_ODD:
