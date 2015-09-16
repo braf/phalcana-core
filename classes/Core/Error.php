@@ -19,8 +19,6 @@ use Phalcana\Debug;
  */
 class Error
 {
-
-
     /**
      * @var  array  Types of errors to display at shutdown
      */
@@ -118,15 +116,11 @@ class Error
 
 
         try {
-
-
-
             if ($e instanceof HTTP) {
-
+                // Do nothing for a user thrown exception
             } else {
-
+                // log the error first
                 self::log($e);
-
 
                 // Purge the response
                 while (ob_get_level()) {
@@ -163,7 +157,6 @@ class Error
 
 
         } catch (\Exception $n) {
-
             self::log($n, Logger::EMERGENCY);
 
 
@@ -185,7 +178,7 @@ class Error
      *
      * @uses    Error::text
      * @param   Exception   Error exception to log
-     * @param   int         The error level to log. While this is an int you can use constants from the [Phalcon\Logger] Class
+     * @param   int         The error level to log.
      */
     public static function log(\Exception $e, $level = Logger::ERROR)
     {

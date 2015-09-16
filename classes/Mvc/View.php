@@ -2,6 +2,7 @@
 
 namespace Phalcana\Mvc;
 
+use Phalcon\Cache\BackendInterface;
 
 /**
  * View extension that works the cascading.
@@ -16,12 +17,12 @@ class View extends \Phalcon\Mvc\View
     /**
      * @var array Cascade paths
      **/
-    protected $_cascadePaths;
+    protected $cascadePaths;
 
     /**
      * @var string Cascade default
      **/
-    protected $_cascadeDefault;
+    protected $cascadeDefault;
 
 
     /**
@@ -30,7 +31,7 @@ class View extends \Phalcon\Mvc\View
      * @return  void
      * @author  Neil Brayfield
      **/
-    protected function _engineRender($engines, $viewPath, $silence, $mustClean, \Phalcon\Cache\BackendInterface $cache = null)
+    protected function _engineRender($engines, $viewPath, $silence, $mustClean, BackendInterface $cache = null)
     {
         // get original so it can be restored
         $this->setViewsDir($this->getCascadeDefault());
@@ -40,10 +41,8 @@ class View extends \Phalcon\Mvc\View
         $cascadePaths = $this->getCascadePaths();
 
         if ($cascadePaths) {
-
             // check default
             if (!$this->exists($viewPath)) {
-
                 foreach ($cascadePaths as $path) {
                     $this->setViewsDir($path.'views/');
                     if ($this->exists($viewPath)) {
@@ -78,7 +77,7 @@ class View extends \Phalcon\Mvc\View
      **/
     public function setCascadePaths($paths)
     {
-        $this->_cascadePaths = $paths;
+        $this->cascadePaths = $paths;
     }
 
 
@@ -89,11 +88,11 @@ class View extends \Phalcon\Mvc\View
      **/
     public function getCascadePaths()
     {
-        if ($this->_cascadePaths == null) {
+        if ($this->cascadePaths == null) {
             return false;
         }
 
-        return $this->_cascadePaths;
+        return $this->cascadePaths;
     }
 
     /**
@@ -103,7 +102,7 @@ class View extends \Phalcon\Mvc\View
      **/
     public function setCascadeDefault($paths)
     {
-        $this->_cascadeDefault = $paths;
+        $this->cascadeDefault = $paths;
     }
 
 
@@ -114,10 +113,10 @@ class View extends \Phalcon\Mvc\View
      **/
     public function getCascadeDefault()
     {
-        if ($this->_cascadeDefault == null) {
+        if ($this->cascadeDefault == null) {
             return false;
         }
 
-        return $this->_cascadeDefault;
+        return $this->cascadeDefault;
     }
 }

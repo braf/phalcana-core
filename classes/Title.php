@@ -2,6 +2,8 @@
 
 namespace Phalcana;
 
+use Phalcon\Di\Injectable;
+
 /**
  * Title helper class.
  *
@@ -9,7 +11,7 @@ namespace Phalcana;
  * @category   Helpers
  * @author     Neil Brayfield
  */
-class Title extends \Phalcon\Di\Injectable
+class Title extends Injectable
 {
 
     /**
@@ -186,7 +188,6 @@ class Title extends \Phalcon\Di\Injectable
 
         if (isset($matches[1])) {
             foreach ($matches[1] as $match) {
-
                 $sub = $this->getVar($match);
 
                 if ($sub) {

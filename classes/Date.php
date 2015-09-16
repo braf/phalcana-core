@@ -187,8 +187,7 @@ class Date extends \Phalcon\Di\Injectable
         $hour = (int) $hour;
         $ampm = strtolower($ampm);
 
-        switch ($ampm)
-        {
+        switch ($ampm) {
             case 'am':
                 if ($hour == 12) {
                     $hour = 0;

@@ -50,7 +50,8 @@ class PublicController extends \Phalcon\Mvc\Controller
 
 
         if ($filename = $this->fs->findFile('public', $filename, $ext, false)) {
-            // Check if the browser sent an "if-none-match: <etag>" header or the if-modfied-since header, and tell if the file hasn't changed
+            // Check if the browser sent an "if-none-match: <etag>" header or the if-modfied-since header,
+            // and tell if the file hasn't changed
             $mtime = filemtime($filename);
             $etag = md5($mtime);
 

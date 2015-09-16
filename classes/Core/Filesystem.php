@@ -3,6 +3,7 @@
 namespace Phalcana\Core;
 
 use Phalcon\Mvc\Dispatcher;
+use Phalcon\Di\Injectable;
 
 /**
  * The base class for the cascading file system
@@ -11,7 +12,7 @@ use Phalcon\Mvc\Dispatcher;
  * @category    Core
  * @author      Neil Brayfield
  */
-class Filesystem extends \Phalcon\Di\Injectable
+class Filesystem extends Injectable
 {
 
     /**
@@ -67,7 +68,7 @@ class Filesystem extends \Phalcon\Di\Injectable
         }
 
         // Loop through modules and swap out the directories and attempt to load manually
-        foreach ($this->modules as $path):
+        foreach ($this->modules as $path) {
             $new_path = str_replace(APPPATH, $path, $loader->getCheckedPath());
             if (file_exists($new_path)) {
                 $new_path = realpath($new_path);
@@ -75,8 +76,7 @@ class Filesystem extends \Phalcon\Di\Injectable
                 $this->saveToCache($class, $new_path);
                 break;
             }
-
-        endforeach;
+        }
 
     }
 
@@ -105,8 +105,7 @@ class Filesystem extends \Phalcon\Di\Injectable
         }
 
         // Loop through modules and try to find an existing file
-        foreach ($paths as $path):
-
+        foreach ($paths as $path) {
             $new_path = $path.$dir.$file.'.'.$ext;
             if (file_exists($new_path)) {
                 if ($array) {
@@ -115,8 +114,8 @@ class Filesystem extends \Phalcon\Di\Injectable
                     return realpath($new_path);
                 }
             }
+        }
 
-        endforeach;
 
         // nothing found
         if ($array && count($result)) {
@@ -130,7 +129,7 @@ class Filesystem extends \Phalcon\Di\Injectable
      * Find a file through the cascading file system
      *
      * @param   string Directory to search for files in
-     * @param   array  The paths to search in. By default this is all the modules and the `APPPATH` and `SYSPATH` folders
+     * @param   array  The paths to search. By default this is all the modules and the `APPPATH` and `SYSPATH` folders
      * @param   bool  Show hidden files
      * @return  array All the files found within the directory structure
      **/
@@ -147,7 +146,6 @@ class Filesystem extends \Phalcon\Di\Injectable
 
         foreach ($paths as $path) {
             if (is_dir($path.$directory)) {
-
                 // Create a new directory iterator
                 $dir = new \DirectoryIterator($path.$directory);
 

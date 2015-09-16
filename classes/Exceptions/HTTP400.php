@@ -2,7 +2,6 @@
 
 namespace Phalcana\Exceptions;
 
-
 use \Phalcon\Mvc\Dispatcher;
 
 /**
@@ -40,11 +39,9 @@ class HTTP400 extends HTTP
         $message = "";
         $output = array();
         foreach ($value as $key => $item) {
-            if (
-                $item instanceof \Phalcon\Mvc\Model\Message ||
-                $item instanceof \Phalcon\Validation\Message
-                ) {
-
+            if ($item instanceof \Phalcon\Mvc\Model\Message
+                || $item instanceof \Phalcon\Validation\Message
+            ) {
                 if ($item->getField() == "") {
                     $message = $item->getMessage();
                 } else {
