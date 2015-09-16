@@ -127,7 +127,7 @@ class Phalcana extends Injectable
         self::$mode = $this->setup->get('mode', self::PRODUCTION);
 
         // Set the paths for the cascading file system
-        $this->fs->setModules($this->setup->modules->toArray());
+        $this->fs->setModules($this->setup->get('modules', array()));
 
         $di->setShared('loader', $this->loadLoader());
 
@@ -463,7 +463,13 @@ class Phalcana extends Injectable
      **/
     protected function init()
     {
-        $files = array_reverse($this->fs->findFile('', 'init', 'php', true, true));
+        $files = $this->fs->findFile('', 'init', 'php', true, true);
+
+        if (!$files) {
+            return;
+        }
+
+        $files = array_reverse($files);
 
         $di = $this->getDI();
 
@@ -488,14 +494,22 @@ class Phalcana extends Injectable
     protected function configure()
     {
         //  load config
-        $static = include APPPATH.'config/static.php';
+        $config = new \Phalcon\Config(array(
+            'base_url' => '/',
+            'static_base_url' => '/',
+        ));
+
+        if (file_exists(APPPATH.'config/static.php')) {
+            $static = include APPPATH.'config/static.php';
+            $config->merge($static);
+        }
 
         if (file_exists(APPPATH.'config/setup.php')) {
             $setup = include APPPATH.'config/setup.php';
-            $static->merge($setup);
+            $config->merge($setup);
         }
 
-        return $static;
+        return $config;
     }
 
 

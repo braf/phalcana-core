@@ -203,9 +203,10 @@ class Filesystem extends Injectable
      **/
     public function saveToCache($class, $path)
     {
-        if (!$this->setup->path_cache) {
+        $cache = $this->setup->get('path_cache', false);
+        if (!$cache) {
             return;
-        } elseif ($this->setup->path_cache == 'auto' && \Phalcana\Phalcana::$mode === \Phalcana\Phalcana::DEVELOPMENT) {
+        } elseif ($cache == 'auto' && \Phalcana\Phalcana::$mode === \Phalcana\Phalcana::DEVELOPMENT) {
             return;
         }
 
