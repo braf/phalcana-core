@@ -319,7 +319,10 @@ class Phalcana extends Injectable
         $di->setShared('date', 'Phalcana\Date');
         $di->setShared('title', 'Phalcana\Title');
 
-
+        if (UTF8::$server_utf8 === null) {
+            // Determine if this server supports UTF-8 natively
+            UTF8::$server_utf8 = extension_loaded('mbstring');
+        }
 
         /**
          * The URL component is used to generate all kind of urls in the application

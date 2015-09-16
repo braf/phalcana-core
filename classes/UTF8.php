@@ -432,7 +432,8 @@ class UTF8
      * @param   string|array    $search     text to replace
      * @param   string|array    $replace    replacement text
      * @param   string|array    $str        subject text
-     * @param   integer         $count      number of matched and replaced needles will be returned via this parameter which is passed by reference
+     * @param   integer         $count      number of matched and replaced needles will be returned via
+     * this parameter which is passed by reference
      * @return  string  if the input was a string
      * @return  array   if the input was an array
      */
@@ -740,10 +741,4 @@ class UTF8
 
         return _fromUnicode($arr);
     }
-}
-
-
-if (UTF8::$server_utf8 === null) {
-    // Determine if this server supports UTF-8 natively
-    UTF8::$server_utf8 = extension_loaded('mbstring');
 }
