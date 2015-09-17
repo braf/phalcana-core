@@ -125,7 +125,7 @@ class Phalcana extends Injectable
 
         // Try to get mode from the environmental variable
         if ($env = getenv('phalcana_mode')) {
-            constant('Phalcana\Phalcana::'.strtoupper($env));
+            self::$mode = constant('Phalcana\Phalcana::'.strtoupper($env));
         }
 
         // Get mode from config
