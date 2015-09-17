@@ -39,7 +39,7 @@ class Phalcana extends Injectable
     const TESTING     = 30;
     const DEVELOPMENT = 40;
 
-    const VERSION     = '0.8.1';
+    const VERSION     = '0.8.4';
     const CODENAME    = 'adio';
 
     /**
@@ -123,8 +123,17 @@ class Phalcana extends Injectable
         // Load the primary config
         $di->setShared('setup', $this->configure());
 
-        // set mode
-        self::$mode = $this->setup->get('mode', self::PRODUCTION);
+        // Try to get mode from the environmental variable
+        if ($env = getenv('phalcana_mode')) {
+            constant('Phalcana\Phalcana::'.strtoupper($env));
+        }
+
+        // Get mode from config
+        $mode = $this->setup->get('mode', false);
+
+        if ($mode) {
+            self::$mode = $mode;
+        }
 
         // Set the paths for the cascading file system
         $this->fs->setModules($this->setup->get('modules', array()));
